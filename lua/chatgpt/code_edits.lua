@@ -96,7 +96,9 @@ M.edit_with_instructions = function()
         output = Utils.split_string_by_line(output_txt_nlfixed)
 
         vim.api.nvim_buf_set_lines(output_window.bufnr, 0, -1, false, output)
-        display_input_suffix(usage.total_tokens)
+        if usage ~= nil then
+          display_input_suffix(usage.total_tokens)
+        end
       end)
     end),
   })
